@@ -1,6 +1,6 @@
 // alert("Hello, World")
 
-let hello = "Hello, World";
+// let hello = "Hello, World";
 // alert(hello);
 
 // // 整数代入
@@ -43,14 +43,152 @@ let hello = "Hello, World";
 //   alert('みかんはりんごより高い')
 // }
 
-// 1を基準に何度２をかけたら１００を超えるか調べる
-let int1 = 1;
-let int2 = 2;
-let int3 = (int1 * int2) / 2;
-let count = 0;
+// // 1を基準に何度２をかけたら１００を超えるか調べる
+// let int1 = 1;
+// let int2 = 2;
+// let int3 = (int1 * int2) / 2;
+// let count = 0;
 
-while(int3 < 100){
-  int3 = int3 * int2;
-  count = count +1;
+// while(int3 < 100){
+//   int3 = int3 * int2;
+//   count = count +1;
+// }
+// alert(count + "回目で100を超えた");
+
+// // for文で1~10を足して結果を返す処理書く
+// let i;
+// let num = 0;
+
+// for(i=1;i<=10;i++){
+//   num = num + i;
+// }
+
+// alert('1~10の和は' + num + 'です');
+
+// // varによる再宣言のみ可能
+// var catname = "Haru"
+// console.log(catname)
+
+// var catname = "Jamu"
+// console.log(catname)
+
+
+// // var letのみ再代入可能
+// let nickname = "Haru-chan"
+// console.log(nickname)
+
+// nickname ="Jamu-kun"
+// console.log(nickname)
+
+
+// //グローバルスコープ
+// var str = "webcamp"
+
+// function foo(){
+//   console.log(str)
+//   // 関数コープ
+//   var y = "hello"
+// }
+
+// foo()
+// console.log(y)
+
+// // ブロックスコープ（ローカルスコープ）
+// function foo(){
+//   let x ="webcamp"
+//   {
+//     let y = "hello webcamp"
+//   }
+//   console.log(x)
+//   console.log(y)
+//   }
+  
+//   foo()
+
+// var str = "webcamp"
+
+// function foo(){
+//   console.log(str)
+//   var str = "dmm webcamp"
+//   console.log(str)
+// }
+
+// foo()
+
+// // 関数に文字代入して戻り値表示
+// let alertString;
+// alertString = addString("Webcamp");
+
+// alert(alertString);
+
+// function addString(strA){
+//   let addStr = "Hello" + strA;
+//   return addStr;
+// }
+
+// // 入力ダイアログで入力した文字をアラートで表示
+// let promptStr = prompt("何か好きな文字を入力する");
+// alert(promptStr);
+
+
+// ジャンケンでユーザーが入力した手とJSがランダムで返す手で勝負
+// じゃんけんの手を入力してもらうプロンプト欄を生成
+let user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+
+// じゃんけんの手をランダムに作成する関数を呼び出す
+let js_hand = getJShand();
+
+// ユーザの手とJavaScriptのじゃんけんの手を比べる関数を呼び出し、結果をjudgeに入れる
+let judge = winLose(user_hand, js_hand);
+
+// 結果を表示する
+alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+
+// ランダムでじゃんけんの手を作成する関数
+function getJShand(){
+  let js_hand_num = Math.floor( Math.random() * 3 );
+  let hand_name;
+
+  if(js_hand_num == 0){
+    hand_name = "グー";
+  } else if(js_hand_num == 1){
+    hand_name = "チョキ";
+  } else if(js_hand_num == 2){
+    hand_name = "パー";
+  }
+
+  return hand_name;
 }
-alert(count + "回目で100を超えた");
+
+// ユーザの手とJavaScriptのじゃんけんの手を比べる関数
+function winLose(user, js){
+  let winLoseStr;
+
+  if(user == "グー"){
+    if(js == "グー"){
+      winLoseStr = "あいこ";
+    } else if(js == "チョキ"){
+      winLoseStr = "勝ち";
+    } else if(js == "パー"){
+      winLoseStr = "負け";
+    }
+  } else if(user == "チョキ"){
+    if(js == "グー"){
+      winLoseStr = "負け";
+    } else if(js == "チョキ"){
+      winLoseStr = "あいこ";
+    } else if(js == "パー"){
+      winLoseStr = "勝ち";
+    }
+  } else if(user == "パー"){
+    if(js == "グー"){
+      winLoseStr = "勝ち";
+    } else if(js == "チョキ"){
+      winLoseStr = "負け";
+    } else if(js == "パー"){
+      winLoseStr = "あいこ";
+    }
+  }
+
+  return winLoseStr;
+}
