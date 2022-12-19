@@ -131,64 +131,121 @@
 // alert(promptStr);
 
 
-// ジャンケンでユーザーが入力した手とJSがランダムで返す手で勝負
-// じゃんけんの手を入力してもらうプロンプト欄を生成
-let user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+// // ジャンケンでユーザーが入力した手とJSがランダムで返す手で勝負
+// // じゃんけんの手を入力してもらうプロンプト欄を生成
+// let user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
 
-// じゃんけんの手をランダムに作成する関数を呼び出す
-let js_hand = getJShand();
+// // じゃんけんの手をランダムに作成する関数を呼び出す
+// let js_hand = getJShand();
 
-// ユーザの手とJavaScriptのじゃんけんの手を比べる関数を呼び出し、結果をjudgeに入れる
-let judge = winLose(user_hand, js_hand);
+// // ユーザの手とJavaScriptのじゃんけんの手を比べる関数を呼び出し、結果をjudgeに入れる
+// let judge = winLose(user_hand, js_hand);
 
-// 結果を表示する
-alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+// // 結果を表示する
+// alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
 
-// ランダムでじゃんけんの手を作成する関数
-function getJShand(){
-  let js_hand_num = Math.floor( Math.random() * 3 );
-  let hand_name;
+// // ランダムでじゃんけんの手を作成する関数
+// function getJShand(){
+//   let js_hand_num = Math.floor( Math.random() * 3 );
+//   let hand_name;
 
-  if(js_hand_num == 0){
-    hand_name = "グー";
-  } else if(js_hand_num == 1){
-    hand_name = "チョキ";
-  } else if(js_hand_num == 2){
-    hand_name = "パー";
+//   if(js_hand_num == 0){
+//     hand_name = "グー";
+//   } else if(js_hand_num == 1){
+//     hand_name = "チョキ";
+//   } else if(js_hand_num == 2){
+//     hand_name = "パー";
+//   }
+
+//   return hand_name;
+// }
+
+// // ユーザの手とJavaScriptのじゃんけんの手を比べる関数
+// function winLose(user, js){
+//   let winLoseStr;
+
+//   if(user == "グー"){
+//     if(js == "グー"){
+//       winLoseStr = "あいこ";
+//     } else if(js == "チョキ"){
+//       winLoseStr = "勝ち";
+//     } else if(js == "パー"){
+//       winLoseStr = "負け";
+//     }
+//   } else if(user == "チョキ"){
+//     if(js == "グー"){
+//       winLoseStr = "負け";
+//     } else if(js == "チョキ"){
+//       winLoseStr = "あいこ";
+//     } else if(js == "パー"){
+//       winLoseStr = "勝ち";
+//     }
+//   } else if(user == "パー"){
+//     if(js == "グー"){
+//       winLoseStr = "勝ち";
+//     } else if(js == "チョキ"){
+//       winLoseStr = "負け";
+//     } else if(js == "パー"){
+//       winLoseStr = "あいこ";
+//     }
+//   }
+
+//   return winLoseStr;
+// }
+
+
+// ジャンケンでユーザーとJSが勝負するプログラム
+// 入力ダイアログ表示
+let prompt_user_hand;
+
+// 入力値がグーチョキパーのいずれか→〇〇を出しました、キャンセルならまたチャレンジしてね、それ以外は再入力させる
+do{
+  prompt_user_hand = prompt("グー、チョキ、パーのいずれかを入力してください")
+  if(prompt_user_hand == "グー" || prompt_user_hand == "チョキ" || prompt_user_hand == "パー"){
+    let user_choice = "あなたは" + prompt_user_hand +"を出しました"
+    alert(user_choice)
   }
+  else if(prompt_user_hand == null){
+    alert("またチャレンジしてね")
+  }
+}
+while(prompt_user_hand != "グー" && prompt_user_hand != "チョキ" && prompt_user_hand != "パー" && prompt_user_hand != null);
 
-  return hand_name;
+// 変数randomNumにランダムに0~2の３つの数字を代入する
+
+let randomNum = Math.floor(Math.random()*3);
+let jsHand;
+let js_hand;
+  
+
+jsHand = jsRandom(randomNum);
+
+function jsRandom(Num){
+
+  if(Num == 0){
+     js_hand = "グー";
+  }
+  else if(Num == 1){
+     js_hand = "チョキ";
+  }
+  else if(Num == 2){
+     js_hand = "パー";
+  }
+  
+  let js_choice = "JSは" + js_hand + "を出しました"
+  alert(js_choice)
 }
 
-// ユーザの手とJavaScriptのじゃんけんの手を比べる関数
-function winLose(user, js){
-  let winLoseStr;
+let winLoseAlert;
+winLoseAlert = winLose(prompt_user_hand, js_hand)
 
-  if(user == "グー"){
-    if(js == "グー"){
-      winLoseStr = "あいこ";
-    } else if(js == "チョキ"){
-      winLoseStr = "勝ち";
-    } else if(js == "パー"){
-      winLoseStr = "負け";
-    }
-  } else if(user == "チョキ"){
-    if(js == "グー"){
-      winLoseStr = "負け";
-    } else if(js == "チョキ"){
-      winLoseStr = "あいこ";
-    } else if(js == "パー"){
-      winLoseStr = "勝ち";
-    }
-  } else if(user == "パー"){
-    if(js == "グー"){
-      winLoseStr = "勝ち";
-    } else if(js == "チョキ"){
-      winLoseStr = "負け";
-    } else if(js == "パー"){
-      winLoseStr = "あいこ";
-    }
+function winLose(user_hand, js_hand){
+  if((user_hand == "グー" && js_hand =="チョキ")||(user_hand == "チョキ" && js_hand =="パー")||(user_hand == "パー" && js_hand == "グー"))
+  {alert("ユーザーの勝ち")}
+  else if(user_hand == js_hand){
+    alert("アイコ")
   }
-
-  return winLoseStr;
+  else{
+    alert("ユーザーの負け")
+  }
 }
