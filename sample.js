@@ -198,30 +198,13 @@
 // 入力ダイアログ表示
 let prompt_user_hand;
 
-// 入力値がグーチョキパーのいずれか→〇〇を出しました、キャンセルならまたチャレンジしてね、それ以外は再入力させる
-do{
-  prompt_user_hand = prompt("グー、チョキ、パーのいずれかを入力してください")
-  if(prompt_user_hand == "グー" || prompt_user_hand == "チョキ" || prompt_user_hand == "パー"){
-    let user_choice = "あなたは" + prompt_user_hand +"を出しました"
-    alert(user_choice)
-  }
-  else if(prompt_user_hand == null){
-    alert("またチャレンジしてね")
-  }
-}
-while(prompt_user_hand != "グー" && prompt_user_hand != "チョキ" && prompt_user_hand != "パー" && prompt_user_hand != null);
-
 // 変数randomNumにランダムに0~2の３つの数字を代入する
 
 let randomNum = Math.floor(Math.random()*3);
 let jsHand;
 let js_hand;
-  
-
-jsHand = jsRandom(randomNum);
 
 function jsRandom(Num){
-
   if(Num == 0){
      js_hand = "グー";
   }
@@ -237,7 +220,6 @@ function jsRandom(Num){
 }
 
 let winLoseAlert;
-winLoseAlert = winLose(prompt_user_hand, js_hand)
 
 function winLose(user_hand, js_hand){
   if((user_hand == "グー" && js_hand =="チョキ")||(user_hand == "チョキ" && js_hand =="パー")||(user_hand == "パー" && js_hand == "グー"))
@@ -249,3 +231,20 @@ function winLose(user_hand, js_hand){
     alert("ユーザーの負け")
   }
 }
+
+// 入力値がグーチョキパーのいずれかJSとジャンケンさせる
+// キャンセルならまたチャレンジしてねと表示
+// グーチョキパー以外入力時は再入力させる
+do{
+  prompt_user_hand = prompt("グー、チョキ、パーのいずれかを入力してください")
+  if(prompt_user_hand == "グー" || prompt_user_hand == "チョキ" || prompt_user_hand == "パー"){
+    let user_choice = "あなたは" + prompt_user_hand +"を出しました"
+    alert(user_choice);
+    jsHand = jsRandom(randomNum);
+    winLoseAlert = winLose(prompt_user_hand, js_hand);
+  }
+  else if(prompt_user_hand == null){
+    alert("またチャレンジしてね")
+  }
+}
+while(prompt_user_hand != "グー" && prompt_user_hand != "チョキ" && prompt_user_hand != "パー" && prompt_user_hand != null);
