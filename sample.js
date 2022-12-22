@@ -200,51 +200,75 @@ let prompt_user_hand;
 
 // 変数randomNumにランダムに0~2の３つの数字を代入する
 
-let randomNum = Math.floor(Math.random()*3);
-let jsHand;
-let js_hand;
+// let randomNum = Math.floor(Math.random()*3);
+// let jsHand;
+// let js_hand;
 
-function jsRandom(Num){
-  if(Num == 0){
-     js_hand = "グー";
-  }
-  else if(Num == 1){
-     js_hand = "チョキ";
-  }
-  else if(Num == 2){
-     js_hand = "パー";
-  }
+// function jsRandom(Num){
+//   if(Num == 0){
+//     js_hand = "グー";
+//   }
+//   else if(Num == 1){
+//     js_hand = "チョキ";
+//   }
+//   else if(Num == 2){
+//     js_hand = "パー";
+//   }
   
-  let js_choice = "JSは" + js_hand + "を出しました"
-  alert(js_choice)
-}
+//   let js_choice = "JSは" + js_hand + "を出しました"
+//   alert(js_choice)
+// }
 
-let winLoseAlert;
+// let winLoseAlert;
 
-function winLose(user_hand, js_hand){
-  if((user_hand == "グー" && js_hand =="チョキ")||(user_hand == "チョキ" && js_hand =="パー")||(user_hand == "パー" && js_hand == "グー"))
-  {alert("ユーザーの勝ち")}
-  else if(user_hand == js_hand){
-    alert("アイコ")
-  }
-  else{
-    alert("ユーザーの負け")
-  }
-}
+// function winLose(user_hand, js_hand){
+//   if((user_hand == "グー" && js_hand =="チョキ")||(user_hand == "チョキ" && js_hand =="パー")||(user_hand == "パー" && js_hand == "グー"))
+//   {alert("ユーザーの勝ち")}
+//   else if(user_hand == js_hand){
+//     alert("アイコ")
+//   }
+//   else{
+//     alert("ユーザーの負け")
+//   }
+// }
 
-// 入力値がグーチョキパーのいずれかJSとジャンケンさせる
-// キャンセルならまたチャレンジしてねと表示
-// グーチョキパー以外入力時は再入力させる
-do{
-  prompt_user_hand = prompt("グー、チョキ、パーのいずれかを入力してください")
-  if(prompt_user_hand == "グー" || prompt_user_hand == "チョキ" || prompt_user_hand == "パー"){
-    let user_choice = "あなたは" + prompt_user_hand +"を出しました"
-    alert(user_choice);
-    jsHand = jsRandom(randomNum);
-    winLoseAlert = winLose(prompt_user_hand, js_hand);
-  }
-  else if(prompt_user_hand == null){
-    alert("またチャレンジしてね")
-  }
-}
-while(prompt_user_hand != "グー" && prompt_user_hand != "チョキ" && prompt_user_hand != "パー" && prompt_user_hand != null);
+// // 入力値がグーチョキパーのいずれかJSとジャンケンさせる
+// // キャンセルならまたチャレンジしてねと表示
+// // グーチョキパー以外入力時は再入力させる
+// do{
+//   prompt_user_hand = prompt("グー、チョキ、パーのいずれかを入力してください")
+//   if(prompt_user_hand == "グー" || prompt_user_hand == "チョキ" || prompt_user_hand == "パー"){
+//     let user_choice = "あなたは" + prompt_user_hand +"を出しました"
+//     alert(user_choice);
+//     jsHand = jsRandom(randomNum);
+//     winLoseAlert = winLose(prompt_user_hand, js_hand);
+//   }
+//   else if(prompt_user_hand == null){
+//     alert("またチャレンジしてね")
+//   }
+// }
+// while(prompt_user_hand != "グー" && prompt_user_hand != "チョキ" && prompt_user_hand != "パー" && prompt_user_hand != null);
+
+// jQuery練習
+// $ (document).ready(function() {
+//   $ ('body').html('<h1>Hello jQuery!!</h1>');
+// });
+
+
+// // jQueryでCSS操作
+// $(function(){
+//   $('.box1').css({
+//     'background-color': '#0000FF',
+//     'height': '100px'
+//   });
+// });
+
+// スライドダウン
+// $(function(){
+//   $('.box1').slideDown();
+// });
+
+// スライドアップ
+$(function(){
+  $('.box1').slideUp();
+});
