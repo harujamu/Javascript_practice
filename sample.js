@@ -268,7 +268,92 @@ let prompt_user_hand;
 //   $('.box1').slideDown();
 // });
 
-// スライドアップ
+// // スライドアップ
+// $(function(){
+//   $('.box1').slideUp();
+// });
+
+// // 非表示→表示
+// $(function(){
+//   $('.box1').show();
+//   $('.box1').css({'background-color': '#0000FF'});
+// });
+
+// // 非表示→表示
+// $(function(){
+//   $('.box1').hide();
+// });
+
+// // 要素を上から下へスライドさせた後、赤色の正方形を青色の長方形（幅200px、高さ100px）に変更
+// // 下から上へスライド
+// // 引数に関数入れられる、1000=1sec
+
+// $(function (){
+//   $('.box2').slideDown(1000,function (){
+//     $('.box2').css({
+//       'width': '200px', 
+//       'height': '100px', 
+//       'background-color': '#0000FF'
+//     }).slideUp(5000);
+//   });
+// });
+
+
+// マウスオーバー時に背景色を青に変える、マウスアウトすると元の赤色に戻る
+// $(function(){
+//   $('.box1').mouseover(function(){
+//     $('.box1').css('background-color', '#0000FF');
+//   });
+//   $('.box1').mouseout(function(){
+//     $('.box1').css('background-color', '#FF0000');
+//   });
+// });
+
+// // マウスオーバー時黒枠ができ、マウスアウトすると消える
+// $(function(){
+//   $('.box1').mouseover(function(){
+//     $('.box1').addClass('box1-ext');
+//   });
+//   $('.box1').mouseout(function(){
+//     $('.box1').removeClass('box1-ext');
+//   });
+// });
+
+
+// // マウスクリック時にイベント発生
+// $(function(){
+//   $('.box1').on('click', function(){
+//     $('.box1').addClass('box1-ext');
+//   });
+//   $('.box1').mouseout(function(){
+//     $('.box1').removeClass('box1-ext');
+//   });
+// });
+
+// // クリックするとSlideUp
+// $(function(){
+//   $('.bg1').on('click', function(){
+//     $('.bg1').slideUp();
+//   });
+//   $('.bg2').on('click', function(){
+//     $('.bg2').slideUp();
+//   });
+//   $('.bg3').on('click', function(){
+//     $('.bg3').slideUp();
+//   });
+//   $('.bg4').on('click', function(){
+//     $('.bg4').slideUp();
+//   });
+// });
+
+// $(function(){
+//   $('.box1').on('click', function(){
+//     $(this).slideUp();
+//   });
+// });
+
 $(function(){
-  $('.box1').slideUp();
+  $('.box').on('click', function(){
+    $('.box').children().slideUp();
+  });
 });
